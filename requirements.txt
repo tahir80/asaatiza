@@ -1,0 +1,10 @@
+# Flask Framework
+Flask
+
+# Flask Packages
+Flask-Login
+Flask-Migrate
+Flask-Script
+Flask-SQLAlchemy
+Flask-WTF
+gunicorn
