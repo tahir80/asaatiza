@@ -1,6 +1,6 @@
 from app import create_app, db
 from app.auth.models import User
-from app.training.models import TASK, MENTOR, TRAINING, SELF_EFFICACY
+# from app.training.models import TASK, MENTOR, TRAINING, SELF_EFFICACY
 from sqlalchemy import exc
 from flask import session
 

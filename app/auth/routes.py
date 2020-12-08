@@ -1,5 +1,5 @@
 from app.auth import authentication as at
-from app.training import training
+from app.main import main
 from flask import session as login_session
 from app.auth.forms import RegistrationForm, LoginForm
 from flask_login import login_user, logout_user, login_required, current_user
@@ -14,7 +14,7 @@ def register_user():
 
     if current_user.is_authenticated:
         flash('you are already logged-in')
-        return redirect(url_for('training.prolific_admin'))
+        return redirect(url_for('main.prolific_admin'))
 
     form = RegistrationForm()
 
@@ -36,7 +36,7 @@ def register_user():
 def do_the_login():
     if current_user.is_authenticated:
         flash('you are already logged-in')
-        return redirect(url_for('training.prolific_admin'))
+        return redirect(url_for('main.prolific_admin'))
     form = LoginForm()
     # if its a POST request
     if form.validate_on_submit():
@@ -47,7 +47,7 @@ def do_the_login():
         # login_user is the buil-in method, we have already imported before
         login_user(user, form.stay_loggedin.data)
         login_session['id'] = user.id
-        return redirect(url_for('training.prolific_admin'))
+        return redirect(url_for('main.prolific_admin'))
     return render_template('login.html', form=form)
 
 
@@ -57,7 +57,7 @@ def log_out_user():
     # log_out_user is buil-in method!!!
     logout_user()
     flash('Logged out Successfully')
-    return redirect(url_for('training.prolific_admin'))
+    return redirect(url_for('main.prolific_admin'))
 
 @at.app_errorhandler(404)
 def page_not_found(error):

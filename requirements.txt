@@ -8,3 +8,5 @@ Flask-Script
 Flask-SQLAlchemy
 Flask-WTF
 gunicorn
+flask_bootstrap
+requests

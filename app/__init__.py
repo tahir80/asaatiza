@@ -45,7 +45,7 @@ def create_app(config_type):
     # from app.auth import authentication   # import blueprint (the name was main)
     # app.register_blueprint(authentication) # register blueprint
 
-    from app.training import training
-    app.register_blueprint(training)
+    from app.main import main
+    app.register_blueprint(main)
 
     return app
