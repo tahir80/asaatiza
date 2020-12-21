@@ -1,0 +1,153 @@
+{% extends 'layout_admin.html' %}
+{% block content %}
+
+<form action="" method="post" novalidate>
+
+    <h4 style="margin-left: 45px"> create a new Task </h4>
+    <hr>
+      {{ form.hidden_tag() }}
+      <!-- {{ wtf.quick_form(form) }} -->
+
+      <p>{{form.title.label}}: {{form.title(size=100)}} {% for error in form.title.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}</p>
+
+
+        <table>
+          <tr>
+            <td>{{form.context.label}} {% for error in form.context.errors %}
+              <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+            {% for radiobutton in form.context %}
+            <td style="padding: 20px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+
+        <table>
+          <tr>
+            <td>{{form.complexity.label}} {% for error in form.complexity.errors %}
+              <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+            {% for radiobutton in form.complexity %}
+            <td style="padding: 20px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+
+        <table>
+          <tr>
+            <td>{{form.quality.label}} {% for error in form.quality.errors %}
+              <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+            {% for radiobutton in form.quality %}
+            <td style="padding: 20px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+
+        <table>
+          <tr>
+            <td>{{form.delay.label}} {% for error in form.delay.errors %}
+              <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+            {% for radiobutton in form.delay %}
+            <td style="padding: 20px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+  <p>{{form.URL_completion_code.label}}: {{form.URL_completion_code(size=100)}} {% for error in form.URL_completion_code.errors %}
+    <span style="color: red;">[{{ error }}]</span> {% endfor %}</p>
+  <div class="row">
+    <div class="col-lg-4">
+
+    </div>
+    <div class="col-lg-4">
+      <br> {{ form.submit() }}
+    </div>
+    <div class="col-lg-4">
+
+    </div>
+
+  </div>
+
+  </form>
+<br><br>
+
+ <h4>TOTAL ENTREIS: {{count}}</h4>
+
+      <table class="table">
+          <thead>
+              <tr>
+                  <th scope="col">Task ID</th>
+                  <th scope="col">Title</th>
+                  <th scope="col">Context</th>
+                  <th scope="col">Complexity</th>
+                  <th scope="col">Quality</th>
+                  <th scope="col">Delay</th>
+                  <th scope="col">Competion URL</th>
+                  <th scope="col">URL</th>
+                  <th scope="col">Edit</th>
+              </tr>
+          </thead>
+          <tbody>
+          {% for task in tasks %}
+              <tr>
+                  <td> {{task.id }} </td>
+                  <td> {{ task.title }} </td>
+                  <td>{{task.context}}</td>
+                  <!-- {%if task.context == '1' %}
+                  <td>STRESS</td>
+                  {% else %}
+                  <td>IR</td>
+                  {% endif %} -->
+
+                  {%if task.complexity == '1' %}
+                  <td>HIGH</td>
+                  {% else %}
+                  <td>LOW</td>
+                  {% endif %}
+                  <!-- <td> {{ task.context }}</td> -->
+                  <!-- <td> {{ task.complexity }}</td> -->
+
+                  {%if task.quality == '1' %}
+                  <td>HIGH</td>
+                  {% else %}
+                  <td>LOW</td>
+                  {% endif %}
+                  <!-- <td> {{ task.quality }}</td> -->
+
+                  {%if task.delay == '2' %}
+                  <td>2-sec</td>
+                  {% elif task.delay == '4' %}
+                  <td>4-sec</td>
+                  {% elif task.delay == '8' %}
+                  <td>8-sec</td>
+                  {% elif task.delay == '12' %}
+                  <td>12-sec</td>
+                  {% else %}
+                  <td>16-sec</td>
+                  {% endif %}
+
+                  <!-- <td> {{ task.delay }}</td> -->
+                  <td> {{ task.URL_completion_code }} </td>
+                    <td> <a href="http://127.0.0.1:5000/consent?context={{task.context}}&c={{task.complexity }}&q={{task.quality }}&d={{task.delay }}">click</a> </td>
+                  <td> <a href="{{ url_for('main.edit_task', task_id=task.id)}}"> Edit </a></td>
+
+              </tr>
+          {% endfor %}
+          </tbody>
+      </table>
+
+{% endblock %}

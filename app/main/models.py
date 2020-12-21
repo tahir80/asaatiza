@@ -6,160 +6,129 @@ class TASK(db.Model):
     __tablename__ = 'TASK'
     id = db.Column(db.Integer, primary_key = True)
     title = db.Column(db.String(100), nullable = False)
-    desc = db.Column(db.String(500), nullable = False)
-    s_start_time = db.Column(db.DateTime, default = datetime.datetime.utcnow())
-    s_end_time = db.Column(db.DateTime, nullable = True)
-    # c_id = db.Column(db.Integer, db.ForeignKey('CONDITION.id'))
-    status = db.Column(db.String(100))
-
-    def __init__(self, title, desc, status):
-        self.title = title
-        self.desc = desc
-        self.status = status
-
-class MENTOR(db.Model):
-    __tablename__ = 'MENTOR'
-    id = db.Column(db.Integer, primary_key = True)
-    mentor_id = db.Column(db.String(100))
+    context = db.Column(db.String(500), nullable = False)
+    complexity = db.Column(db.String(500), nullable = False)
+    quality = db.Column(db.String(500), nullable = False)
+    delay = db.Column(db.String(500), nullable = False)
+    URL_completion_code = db.Column(db.String(500))
     time_stamp = db.Column(db.DateTime, default = datetime.datetime.utcnow())
 
-    def __init__(self, mentor_id, time_stamp):
-        self.mentor_id = mentor_id
-        self.time_stamp = time_stamp
+    def __init__(self, title, context, complexity, quality, delay, URL_completion_code):
+        self.title = title
+        self.context = context
+        self.complexity = complexity
+        self.quality = quality
+        self.delay = delay
+        self.URL_completion_code = URL_completion_code
 
-class TRAINING(db.Model):
-    __tablename__ = 'TRAINING'
+class WORKER(db.Model):
+    __tablename__ = 'WORKER'
     id = db.Column(db.Integer, primary_key = True)
-    m_id = db.Column(db.Integer, db.ForeignKey('MENTOR.id'))
-    qs = db.Column(db.String(500), nullable = False)
-    ans = db.Column(db.String(500), nullable = False)
+    prolific_id = db.Column(db.String(100))
+    time_stamp = db.Column(db.DateTime, default = datetime.datetime.utcnow())
+
+    def __init__(self, prolific_id):
+        self.prolific_id = prolific_id
+
+class SURVEY(db.Model):
+
+    __tablename__ = 'SURVEY'
+    id = db.Column(db.Integer, primary_key = True)
+    w_id = db.Column(db.Integer, db.ForeignKey('WORKER.id'))
+    t_id = db.Column(db.Integer, db.ForeignKey('TASK.id'))
+    #survey items
+    mood = db.Column(db.String(500), nullable = False)
+    PWT = db.Column(db.String(500), nullable = False)
+    cognitive = db.Column(db.String(500), nullable = False)
+    affective_irritation = db.Column(db.String(500), nullable = False)
+    affective_fairness = db.Column(db.String(500), nullable = False)
+    affective_annoyance = db.Column(db.String(500), nullable = False)
+    affective_boredom = db.Column(db.String(500), nullable = False)
+    affective_stress = db.Column(db.String(500), nullable = False)
+    attitude  = db.Column(db.String(500), nullable = False)
+    satisfaction  = db.Column(db.String(500), nullable = False)
+    feedback  = db.Column(db.String(500), nullable = False)
+    suggestion = db.Column(db.String(500))
+    social_o_1  = db.Column(db.String(500), nullable = False)
+    social_o_2  = db.Column(db.String(500), nullable = False)
+    exp1  = db.Column(db.String(500), nullable = False) # experience with chatbot
+    exp2  = db.Column(db.String(500), nullable = False)
+    ati1  = db.Column(db.String(500), nullable = False)
+    ati2 = db.Column(db.String(500), nullable = False)
+    ati3 = db.Column(db.String(500), nullable = False)
+    ati4 = db.Column(db.String(500), nullable = False)
+    ati5  = db.Column(db.String(500), nullable = False)
+    ati6 = db.Column(db.String(500), nullable = False)
+    ati7 = db.Column(db.String(500), nullable = False)
+    ati8 = db.Column(db.String(500), nullable = False)
+    ati9 = db.Column(db.String(500), nullable = False)
+    education = db.Column(db.String(500), nullable = False)
+
+    time_stamp = db.Column(db.DateTime, default = datetime.datetime.utcnow)
+
+    def __init__(self, w_id, t_id, mood, PWT, cognitive, affective_irritation, affective_fairness, \
+    affective_annoyance, affective_boredom, affective_stress, attitude, satisfaction, feedback, suggestion, \
+    social_o_1, social_o_2, exp1, exp2, ati1, ati2, ati3, ati4, ati5, ati6, ati7, ati8, ati9, education):
+        self.w_id = w_id
+        self.t_id = t_id
+        self.mood = mood
+        self.PWT = PWT
+        self.cognitive = cognitive
+        self.affective_irritation = affective_irritation
+        self.affective_fairness = affective_fairness
+        self.affective_annoyance = affective_annoyance
+        self.affective_boredom = affective_boredom
+        self.affective_stress = affective_stress
+        self.attitude = attitude
+        self.satisfaction = satisfaction
+        self.feedback = feedback
+        self.suggestion = suggestion
+        self.social_o_1 = social_o_1
+        self.social_o_2 = social_o_2
+        self.exp1 = exp1
+        self.exp2 = exp2
+        self.ati1 = ati1
+        self.ati2 = ati2
+        self.ati3 = ati3
+        self.ati4 = ati4
+        self.ati5 = ati5
+        self.ati6 = ati6
+        self.ati7 = ati7
+        self.ati8 = ati8
+        self.ati9 = ati9
+        self.education = education
+
+class MESSAGE(db.Model):
+
+    __tablename__ = 'MESSAGE'
+    id = db.Column(db.Integer, primary_key = True)
+    w_id = db.Column(db.Integer, db.ForeignKey('WORKER.id'))
+    t_id = db.Column(db.Integer, db.ForeignKey('TASK.id'))
+
+    user_utterance = db.Column(db.String(500), nullable = False)
     start_time = db.Column(db.DateTime, default = datetime.datetime.utcnow())
     end_time =db.Column(db.DateTime)
-    t_id = db.Column(db.Integer, db.ForeignKey('TASK.id'))
 
-    def __init__(self, m_id, qs, ans, t_id, end_time):
-        self.m_id = m_id
-        self.qs = qs
-        self.ans = ans
+    def __init__(self, user_utterance, w_id, t_id, start_time, end_time):
+        self.user_utterance = user_utterance
+        self.w_id = w_id
         self.t_id = t_id
-        # self.start_time = start_time
         self.end_time = end_time
+        self.start_time = start_time
 
-
-class SELF_EFFICACY(db.Model):
-
-    __tablename__ = 'SELF_EFFICACY'
+class TIME_SPENT(db.Model):
+    __tablename__ = 'TIME_SPENT'
     id = db.Column(db.Integer, primary_key = True)
-    m_id = db.Column(db.Integer, db.ForeignKey('MENTOR.id'))
+    w_id = db.Column(db.Integer, db.ForeignKey('WORKER.id'))
     t_id = db.Column(db.Integer, db.ForeignKey('TASK.id'))
-    #survey items
-    understand = db.Column(db.String(500), nullable = False)
-    say_next = db.Column(db.String(500), nullable = False)
-    Help_client_to_talk = db.Column(db.String(500), nullable = False)
-    conceptualization = db.Column(db.String(500), nullable = False)
-    explore = db.Column(db.String(500), nullable = False)
-    helping_skill = db.Column(db.String(500), nullable = False)
-    realistic_counseling_goals = db.Column(db.String(500), nullable = False)
-    focused = db.Column(db.String(500), nullable = False)
-    intentions = db.Column(db.String(500), nullable = False)
-    planning = db.Column(db.String(500), nullable = False)
-    beforeafter = db.Column(db.String(500), nullable = False)
-    start_time = db.Column(db.DateTime, default = datetime.datetime.utcnow)
-    end_time = db.Column(db.DateTime)
 
-    def __init__(self, m_id, t_id, understand, say_next, Help_client_to_talk, conceptualization, \
-    explore, helping_skill, realistic_counseling_goals, focused, intentions, planning, beforeafter, end_time):
-        self.m_id = m_id
+    stage = db.Column(db.String(500), nullable = False)
+    start_time = db.Column(db.DateTime, default = datetime.datetime.utcnow())
+    end_time =db.Column(db.DateTime)
+
+    def __init__(self, stage, w_id, t_id, start_time, end_time):
+        self.stage = stage
+        self.w_id = w_id
         self.t_id = t_id
-        self.understand = understand
-        self.say_next = say_next
-        self.Help_client_to_talk = Help_client_to_talk
-        self.conceptualization = conceptualization
-        self.explore = explore
-        self.helping_skill = helping_skill
-        self.realistic_counseling_goals = realistic_counseling_goals
-        self.focused = focused
-        self.intentions = intentions
-        self.planning = planning
-        self.beforeafter = beforeafter
-        self.end_time=end_time
-
-class POSE_S(db.Model):
-
-    __tablename__ = 'POSE_S'
-    id = db.Column(db.Integer, primary_key = True)
-    m_id = db.Column(db.Integer, db.ForeignKey('MENTOR.id'))
-    t_id = db.Column(db.Integer, db.ForeignKey('TASK.id'))
-    #survey items
-    problem_solution = db.Column(db.String(500), nullable = False)
-    find_way = db.Column(db.String(500), nullable = False)
-    difficult_problems = db.Column(db.String(500), nullable = False)
-    optimistic_way = db.Column(db.String(500), nullable = False)
-    hardly_think_of_positivity = db.Column(db.String(500), nullable = False)
-    master_difficulties = db.Column(db.String(500), nullable = False)
-    worry_future = db.Column(db.String(500), nullable = False)
-    solution_to_a_problem = db.Column(db.String(500), nullable = False)
-    everything_is_gloomy = db.Column(db.String(500), nullable = False)
-    beforeafter = db.Column(db.String(500), nullable = False)
-
-    start_time = db.Column(db.DateTime, default = datetime.datetime.utcnow)
-    end_time = db.Column(db.DateTime)
-
-    def __init__(self, m_id, t_id, problem_solution, find_way, difficult_problems, optimistic_way,
-    hardly_think_of_positivity, master_difficulties, worry_future, solution_to_a_problem, everything_is_gloomy, beforeafter, end_time):
-        self.m_id = m_id
-        self.t_id = t_id
-        self.problem_solution = problem_solution
-        self.find_way = find_way
-        self.difficult_problems = difficult_problems
-        self.optimistic_way = optimistic_way
-        self.hardly_think_of_positivity = hardly_think_of_positivity
-        self.master_difficulties = master_difficulties
-        self.worry_future = worry_future
-        self.solution_to_a_problem = solution_to_a_problem
-        self.everything_is_gloomy = everything_is_gloomy
-        self.beforeafter = beforeafter
-        self.end_time=end_time
-
-
-class ISEL_12(db.Model):
-
-    __tablename__ = 'ISEL_12'
-    id = db.Column(db.Integer, primary_key = True)
-    m_id = db.Column(db.Integer, db.ForeignKey('MENTOR.id'))
-    t_id = db.Column(db.Integer, db.ForeignKey('TASK.id'))
-    #survey items
-    item1 = db.Column(db.String(500), nullable = False)
-    item2 = db.Column(db.String(500), nullable = False)
-    item3 = db.Column(db.String(500), nullable = False)
-    item4 = db.Column(db.String(500), nullable = False)
-    item5 = db.Column(db.String(500), nullable = False)
-    item6 = db.Column(db.String(500), nullable = False)
-    item7 = db.Column(db.String(500), nullable = False)
-    item8 = db.Column(db.String(500), nullable = False)
-    item9 = db.Column(db.String(500), nullable = False)
-    item10 = db.Column(db.String(500), nullable = False)
-    item11 = db.Column(db.String(500), nullable = False)
-    item12 = db.Column(db.String(500), nullable = False)
-    beforeafter = db.Column(db.String(500), nullable = False)
-
-    start_time = db.Column(db.DateTime, default = datetime.datetime.utcnow)
-    end_time = db.Column(db.DateTime)
-
-    def __init__(self, m_id, t_id, item1, item2, item3, item4, item5, item6, item7, item8, item9,item10, item11, item12, beforeafter, end_time):
-        self.m_id = m_id
-        self.t_id = t_id
-        self.item1 = item1
-        self.item2 = item2
-        self.item3 = item3
-        self.item4 = item4
-        self.item5 = item5
-        self.item6 = item6
-        self.item7 = item7
-        self.item8 = item8
-        self.item9 = item9
-        self.item10 = item10
-        self.item11 = item11
-        self.item12 = item12
-        self.beforeafter = beforeafter
-        self.end_time=end_time
+        self.end_time = end_time
+        self.start_time = start_time

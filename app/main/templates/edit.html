@@ -1,0 +1,33 @@
+{% extends 'layout_admin.html' %}
+{% block content %}
+<!-- {{ form.hidden_tag() }}
+    <div> {{ wtf.quick_form(form) }} </div> -->
+
+    <form class="form form-horizontal" method="post" role="form">
+  {{ form.hidden_tag() }}
+  {{ wtf.form_errors(form, hiddens="only") }}
+
+  {{ wtf.form_field(form.title) }}
+  <h4>context</h4>
+  {{ wtf.form_field(form.context) }}
+
+  <h4>Complexity</h4>
+  {{ wtf.form_field(form.complexity) }}
+
+  <h4>Quality</h4>
+  {{ wtf.form_field(form.quality) }}
+
+  <h4>Delay</h4>
+  {{ wtf.form_field(form.delay) }}
+
+  <h4>URL</h4>
+  {{ wtf.form_field(form.url) }}
+
+<br>
+<div class="text-center">
+    {{ wtf.form_field(form.submit) }}
+</div>
+
+
+</form>
+{% endblock %}

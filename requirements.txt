@@ -10,3 +10,4 @@ Flask-WTF
 gunicorn
 flask_bootstrap
 requests
+psycopg2

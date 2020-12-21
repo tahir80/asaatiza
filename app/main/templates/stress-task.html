@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title></title>
+
+  <style>
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 100%;
+  margin: auto;
+  padding: 40px;
+  text-align: center;
+  font-family: arial;
+  background: whitesmoke;
+}
+
+.title {
+  color: grey;
+  font-size: 18px;
+}
+
+  </style>
+</head>
+
+<body>
+  <form method="post">
+  <div class="container">
+
+    <nav class="navbar navbar-light bg-light">
+
+      <div class="text-center">
+        <img src="/static/img/tue.png" width="20%" height="20%" class="mx-auto d-block" alt="">
+        <h4>INSTRUCTIONS</h4>
+      </div>
+    </nav>
+    <br>
+    <div class="alert alert-dark" role="alert">
+    <p>Please thoroughly read the description of a fictional character very carefully presented below. You have to play the role of a given fictional character in the conversational task in the next page. Below the description of a fictional character, we have provided some sample guiding questions that crowd-powered conversational system can ask you. Read them carefully and see whether you can answer them in your mind.</p>
+    <p>Once you load the CPCS in the next page, it will send you a greeting response, which is pre-programed and does not involve any crowd-powered support. However, the subsequent responses from the CPCS involve real time support from both humans and computation as explained in the consent form.</p>
+    <p>After reading about fictional character and guiding questions, please click the ‘proceed further’ button to initiate the conversational task.</p>
+
+    </div>
+    <!-- ELISHA COMPLEX -->
+    <div class="card" id="complex_case">
+      <div class="text-center">
+        <img src="{{url_for('static', filename='img/persona_elisha2.png')}}" class="rounded-circle" alt="Cinque Terre" width="150px">
+
+      </div>
+      <!-- <img src="{{url_for('static', filename='img/bot.png')}}" class="rounded-circle float-left img-thumbnail" width="75px" alt="..."> -->
+      <h1>Elisha</h1>
+      <p class="title">29-year-old, married</p>
+      <p style="text-align:left;">Elisha is a 29-year-old woman who lives with her husband Walter, a 37-year-old man. Walter is an IT Business Consultant in a multinational company and has quite a busy schedule. They have a lovely 2-year-old daughter whom they recently enrolled into a nearby daycare center. Recently, Elisha found her dream job as a Software Quality Engineer in a local company. Elisha is also a very caring mother. Every morning, she fondly dresses her daughter up for the daycare, prepares her favorite lunch, and drops her at the daycare center before she goes to work. </p>
+
+      <p style="text-align:left;">
+        Elisha has been very anxious this week since her daughter fell sick. As a result, she had to take three days off work to take care of her daughter. Now, she has to spend some days with her sick daughter at home. Elisha already used up most of her holidays this year and only has 3 left. This also happens to be a very busy period at work.  This makes her anxious because she is wary of all the work that will pile up over the next few days, by the time she is able to get back to work. She thinks that she would not be able to handle a lot of pending work within strict deadlines and this would impact her performance. On contacting her office and providing them with a doctor's note, she is informed that since it is her daughter who is sick this would unfortunately not be considered as a sick leave, but a holiday. They explain that there is nothing that can be done, and with these 3 days she will have used up all her holidays for the year with over a third of the year to go. This unpleasant response from her employer makes her further anxious about her job. She contacts her colleagues who listen to her, but she feels helpless. She also feels insecure about her job and is worried about the prospect of getting fired from her dream job. On the other hand, she is feeling guilty because she is so preoccupied with her work-related issues and presumes that she is not really caring for her daughter to the best of her ability. This makes her feel like a bad mom.  Her husband is out of the country on a business trip, so she cannot turn to him to help alleviate this stress.
+
+       </p>
+
+
+       <p style="text-align:left;">
+         When stressed out, Elisha talks to herself to calm down. For instance, she tells herself that there is still a chance that she can cope with the workload and manage without any further holidays, and that her company will not fire her.
+         She also tells herself that it is okay to feel helpless and stressed while trying to juggle work with raising a young child.
+         She reassures herself that this does not mean that she stopped being a caring mom. This makes her feel a bit better.
+        </p>
+
+
+    </div>
+
+    <!-- CARLA LESS COMPLEX -->
+    <div class="card" id="simple_case">
+      <div class="text-center">
+        <img src="{{url_for('static', filename='img/persona_carla.png')}}" class="rounded-circle" alt="Cinque Terre" width="150px">
+
+      </div>
+      <!-- <img src="{{url_for('static', filename='img/bot.png')}}" class="rounded-circle float-left img-thumbnail" width="75px" alt="..."> -->
+      <h1>Carla</h1>
+      <p class="title">21-year-old, undergraduate student</p>
+      <p style="text-align:left;">Carla is a 21-year-old unmarried girl. She is a final year bachelor student studying Innovation Sciences.
+        She is a very hard-working student and has received an ‘A’ grade on all of her assignments. Her teachers believe that she is one of the best students in the class.  </p>
+
+      <p style="text-align:left;">
+      A new student named Hanna, has recently moved from another class to Carla’s class. Hanna is also a very talented student and received ‘A’ grades on all of her assignments.  The presence of Hanna is stressing Carla out. Prior to Hanna’s arrival, Carla considered herself to be the best student in class, with the best grades. Now she feels like she needs to compete with Hanna and is wary of losing out on the ‘Best Student Award’, an award presented by the University to the student with the most stellar academic record at the end of the study program. Previously, Carla found assignments to be easy and straightforward but now she is obsessed about her performance in the assignments and tends to worry about unnecessary details. For instance, she is constantly sending emails to her teachers to clarify the assignments and to make sure that she is doing well according to the instructions. She believes that if she fails to earn that award, then she would be a failure. She finds this situation increasingly overwhelming and this makes her feel distressed and worried.
+
+       </p>
+
+       <p style="text-align:left;">
+         When Carla is stressed out, she sits in a quiet place and tells herself that this award is something confined to her university, and nobody would know or care about it in the grand scheme of things.
+         So, it would not really impact her future employment prospects or what her peers may think of her.
+         This strategy is called self-talk, and this relieves her stress to some degree.
+        </p>
+
+
+    </div>
+
+  <!-- GUIDIGN QUESTIONS -->
+  <div class="card">
+    <div class="card-header">
+      <h5 class="card-title">Some Guiding Questions</h5>
+    </div>
+    <div class="card-body">
+
+      <img src="{{url_for('static', filename='img/guiding_questions.png')}}" class="img-fluid">
+
+    </div>
+  </div>
+
+<br>
+
+
+  <input type="hidden" id="hidden_field" name="hidden_field" value="3487">
+
+<div class="text-center">
+  <button type="submit" class="btn btn-secondary btn-lg" id="nextbtn">Proceed Further</button>
+</div>
+
+
+
+
+  </div>
+</form>
+
+  <script>
+    function gup(name) {
+      name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regexS = "[\\?&]" + name + "=([^&#]*)";
+      var regex = new RegExp(regexS);
+      var results = regex.exec(window.location.href);
+      if (results == null)
+        return "";
+      else
+        return unescape(results[1]);
+    }
+
+    $(document).ready(function() {
+      if (gup("c") == "1") $('#simple_case').hide();
+      if (gup("c") == "0") $('#complex_case').hide();
+
+      $.ajax({
+              type: "POST",
+              url: "/setTime",
+              data: JSON.stringify({
+                "nothing": {}
+              }),
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function(data) {
+              console.log(JSON.stringify(data));
+              }
+          });
+    });
+
+    $('#nextbtn').click(function() {
+      var qs = {
+        'workerId': gup("workerId"),
+        'mood': gup("mood"),
+        'context': gup("context"),
+        'q': gup('q'),
+        'c':gup('c'),
+        'd':gup('d')
+      };
+
+        window.location.replace("http://127.0.0.1:5000/bot" + "?" + $.param(qs));
+
+
+    });
+
+  </script>
+</body>
+
+</html>

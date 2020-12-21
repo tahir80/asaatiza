@@ -1,0 +1,383 @@
+{% extends 'layout_surveys.html' %}{% block content %}
+
+<!-- <div class="alert alert-success alert-dismissible">
+   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+   <strong>Success!</strong> This alert box could indicate a successful or positive action.
+ </div> -->
+<br>
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+  <p>Please fill out all the entries carefully on this form until you do not see any red-colored error messages. These red-colored error messages indicate that you fail to fill out the required entries on the form. </p>
+  <p>Please hit the submit button at the bottom to submit this form. You will be then redirected to URL completion code on the Prolific website.</p>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<form action="" method="post" novalidate>
+  {{ form.hidden_tag() }}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-9">
+        <br>
+        <p>
+          {{form.Perceived_waiting_time.label }}
+        </p>
+      </div>
+
+      <div class="col-sm-3">
+        <br>
+        <p>
+          {{ form.Perceived_waiting_time(size=8, class_='form-control')}}{% for error in form.Perceived_waiting_time.errors %}
+          <span style="color: red;">[{{ error }}]</span> {% endfor %}
+        </p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm">
+        (2) {{ form.cognitive.label }}{% for error in form.cognitive.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %} {{ form.cognitive(size=10) }}
+      </div>
+
+    </div>
+
+    <div class="row">
+      <label for="affective">(3) How much did you feel the emotions listed below while you waited for the response? <b>(1: completely disagree, 5: completely agree)</b></label>
+    </div>
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td> {{ form.irritation.label }} {% for error in form.irritation.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.irritation %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.fairness.label }} {% for error in form.fairness.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.fairness %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+
+        <tr>
+          <td> {{ form.annoyance.label }} {% for error in form.annoyance.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.annoyance %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.boredom.label }} {% for error in form.boredom.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.boredom %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.stress.label }} {% for error in form.stress.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.stress %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+      </table>
+
+    </div>
+    <div class="row">
+
+      <div class="col-sm">
+        (4) {{ form.attitude.label }} <br>{% for error in form.attitude.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %} {{ form.attitude(size=10) }}
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm">
+        (5) {{ form.satisfaction.label }} <b>(1: Very dissatisfied, 10: very satisfied)</b> <br>{% for error in form.satisfaction.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+        <table>
+          <tr>
+            {% for radiobutton in form.satisfaction %}
+            <td style="padding: 20px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+    <div class="row">
+
+      <div class="col-sm">
+        (6) {{ form.feedback.label }}<br> {{ form.feedback(class_='form-control') }}{% for error in form.feedback.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        <br> (7) {{ form.suggestion.label }}<br> {{ form.suggestion(class_='form-control') }}{% for error in form.suggestion.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <br> (8) {{ form.exp1.label }} <b>(1: completely disagree, 7: completely agree)</b><br>{% for error in form.exp1.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+        <table class="table">
+          <tr>
+            {% for radiobutton in form.exp1 %}
+            <td style="padding: 15px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm">
+        <br> (8) {{ form.exp2.label }} <b>(1: completely disagree, 7: completely agree)</b><br>{% for error in form.exp2.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+        <table class="table">
+          <tr>
+            {% for radiobutton in form.exp2 %}
+            <td style="padding: 15px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+
+      <div class="col-sm">
+        <br> (8) {{ form.social_o_1.label }} <b>(1: completely disagree, 7: completely agree)</b><br>{% for error in form.social_o_1.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+        <table class="table">
+          <tr>
+            {% for radiobutton in form.social_o_1 %}
+            <td style="padding: 15px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+
+      <div class="col-sm">
+        <br> (9) {{ form.social_o_2.label }} <b>(1: completely disagree, 7: completely agree)</b><br>{% for error in form.social_o_2.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %}
+        <table class="table">
+          <tr>
+            {% for radiobutton in form.social_o_2 %}
+            <td style="padding: 15px;">
+              {{ radiobutton }} {{ radiobutton.label }}
+            </td>
+            {% endfor %}
+          </tr>
+
+        </table>
+
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <label for="ATI"> (10) In the following questionnaire, we will ask you about your interaction with technical systems. The term “technical systems” refers to apps and other software applications, as well as entire digital devices (e.g., mobile phone, computer, TV, car navigation).</label>
+    </div>
+
+
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <td><b>Please indicate the degree to which you agree/disagree with the following statements.</b>
+          </td>
+          <td>completely disagree</td>
+          <td>largely disagree</td>
+          <td>slightly disagree</td>
+          <td>slightly agree</td>
+          <td>largely agree</td>
+          <td>completely agree</td>
+        </tr>
+        <tr>
+          <td> {{ form.ati1.label }} {% for error in form.ati1.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati1 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.ati2.label }} {% for error in form.ati2.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati2 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+
+        <tr>
+          <td> {{ form.ati3.label }} {% for error in form.ati3.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati3 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.ati4.label }} {% for error in form.ati4.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati4 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.ati5.label }} {% for error in form.ati5.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati5 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.ati6.label }} {% for error in form.ati6.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati6 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.ati7.label }} {% for error in form.ati7.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati7 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+        <tr>
+          <td> {{ form.ati8.label }} {% for error in form.ati8.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati8 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+
+
+        <tr>
+          <td> {{ form.ati9.label }} {% for error in form.ati9.errors %}
+            <span style="color: red;">[{{ error }}]</span> {% endfor %}</td>
+          {% for radiobutton in form.ati9 %}
+          <td>
+            {{ radiobutton }} {{ radiobutton.label }}
+          </td>
+          {% endfor %}
+
+        </tr>
+      </table>
+
+    </div>
+
+    <div class="row">
+      <div class="col-sm">
+        (11) {{ form.education.label }}{% for error in form.education.errors %}
+        <span style="color: red;">[{{ error }}]</span> {% endfor %} {{ form.education }}
+      </div>
+
+    </div>
+
+
+
+
+    <div class="row">
+      <div class="col-lg-4">
+
+      </div>
+      <div class="col-lg-4">
+        <br> {{ form.submit() }}
+      </div>
+      <div class="col-lg-4">
+
+      </div>
+
+    </div>
+  </div>
+</form>
+{% endblock %}

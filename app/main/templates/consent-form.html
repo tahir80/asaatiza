@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous"> -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title>consent form</title>
+
+  <style>
+    .radio-toolbar {
+      margin: 10px;
+    }
+
+    .radio-toolbar input[type="radio"] {
+      opacity: 0;
+      position: fixed;
+      width: 0;
+    }
+
+    .radio-toolbar label {
+      display: inline-block;
+      background-color: #ddd;
+      padding: 10px 20px;
+      font-family: sans-serif, Arial;
+      font-size: 16px;
+      border: 2px solid #444;
+      border-radius: 4px;
+    }
+
+    .radio-toolbar label:hover {
+      background-color: #dfd;
+    }
+
+    .radio-toolbar input[type="radio"]:focus+label {
+      border: 2px dashed #444;
+    }
+
+    .radio-toolbar input[type="radio"]:checked+label {
+      background-color: #bfb;
+      border-color: #4c4;
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <form method="post">
+    <div class="w3-container ">
+      <div id="id01" class="w3-modal">
+        <div class="w3-modal-content w3-card-4">
+          <header class="w3-container w3-light-grey">
+            <span onclick="document.getElementById('id01').style.display='none'" </span>
+            <h4>Wait a minute! before we proceed further, can you please tell in what mood are you today?</h4>
+          </header>
+          <div class="w3-container">
+            <div class="text-center">
+
+
+              <img src="{{url_for('static', filename='img/PAM.png')}}" width="50%" height="50%" class="mx-auto d-block" alt="">
+              <!-- https://markheath.net/post/customize-radio-button-css -->
+              <div class="radio-toolbar">
+                <div class="radio-toolbar">
+                  <input type="radio" id="one" name="PAM" value="1">
+                  <label for="one">1</label>
+
+                  <input type="radio" id="two" name="PAM" value="2">
+                  <label for="two">2</label>
+
+                  <input type="radio" id="three" name="PAM" value="3">
+                  <label for="three">3</label>
+
+                  <input type="radio" id="four" name="PAM" value="4">
+                  <label for="four">4</label>
+
+                  <input type="radio" id="five" name="PAM" value="5">
+                  <label for="five">5</label>
+
+                  <input type="radio" id="six" name="PAM" value="6">
+                  <label for="six">6</label>
+
+                  <input type="radio" id="seven" name="PAM" value="7">
+                  <label for="seven">7</label>
+
+                  <input type="radio" id="eight" name="PAM" value="8">
+                  <label for="eight">8</label>
+
+                  <input type="radio" id="nine" name="PAM" value="9">
+                  <label for="nine">9</label>
+                </div>
+                <p>&nbsp;</p>
+              </div>
+            </div>
+            <footer class="w3-container w3-light-grey">
+              <div class="text-center">
+                <br>
+                <p><button type="submit" class="btn btn-primary" id="PAMbtn">Proceed Next</button></p>
+              </div>
+
+            </footer>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+      <div class="container">
+        <!-- HEADER -->
+        <nav class="navbar navbar-light bg-light">
+
+          <div class="text-center">
+            <img src="/static/img/tue.png" width="20%" height="20%" class="mx-auto d-block" alt="">
+            <h4>CONSENT FORM</h4>
+          </div>
+        </nav>
+        <br>
+
+        <!-- Worker ID -->
+        <div class="input-group input-group-lg">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="inputGroup-sizing-lg">Enter your Worker ID: </span>
+          </div>
+          <input type="text" class="form-control" aria-label="Large" aria-describedby="inputGroup-sizing-sm" id="workerid" name="workerId">
+        </div>
+        <br>
+        <!--Purpose  -->
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Background and Purpose of the Study</h5>
+          </div>
+          <div class=" row card-body">
+            <div class="col-sm-8">
+              <p class="card-text">Crowd-powered systems combine computation with human intelligence, drawn from large groups of people connecting and coordinating online. These “hybrid” systems enable applications to solve problems that neither humans nor computation could
+                support alone. Recently, researchers have empowered the text-based messaging and chatbots systems with crowd support in real time. These are known as crowd-powered conversational systems (CPCS). In the CPCS, multiple humans are involved
+                in generating chatbot responses in real time. Then either computational intelligence or human evaluators are employed to choose the best quality response in real time. Hence both processes—response generation and response evaluation—work
+                in parallel. Nevertheless, at times, a response can also be generated directly through computational intelligence if it has enough knowledge of the topic. <br><br>The purpose of the research is to investigate the perception of CPCS, which
+                is implemented in the form of a chatbot.
+            </div>
+            <div class="col-sm-4">
+              <img class="card-img-right" src="/static/img/chatbot.png" alt="Card image cap" class="img-fluid">
+            </div>
+            </p>
+          </div>
+        </div>
+
+
+        <!--Purpose  -->
+        <div class="card" id="stress">
+          <div class="card-header">
+            <h5 class="card-title">Brief Description of the Study</h5>
+          </div>
+          <div class="card-body">
+
+            <p class="card-text">
+
+              <ul class="list-group">
+                <li class="list-group-item">After signing this digital consent form, you will be redirected to a URL web page where you have to read about the description of a fictional character (~350 words). You have to play the role of a fictional character in this study. The detailed
+                  description of a fictional character and some guidelines will be shown in the next page.</li>
+                <li class="list-group-item">After that, you will be redirected to another web page where you have to briefly chat with the crowd-powered conversational system (CPCS). The CPCS is implemented in the form of a chatbot. The chatbot will ask you some questions. You have
+                  to answer those questions based on what you have already learned about the fictional character.</li>
+                <li class="list-group-item">Then, you will be asked to fill out a survey form.</li>
+                <li class="list-group-item">Finally, you will be redirected back to the Completion URL on the prolific platform.</li>
+              </ul>
+
+              <div class="alert alert-warning" role="alert">
+                Note: It is up to you to decide whether to take part or not; choosing not to take part will not disadvantage you in any way. You are allowed to leave the study even during the execution of the study.
+              </div>
+
+            </p>
+          </div>
+        </div>
+
+        <div class="card" id="IR">
+          <div class="card-header">
+            <h5 class="card-title">Brief Description of the Study</h5>
+          </div>
+          <div class="card-body">
+
+            <p class="card-text">
+
+              <ul class="list-group">
+                <li class="list-group-item">After signing this digital consent form, you will be redirected to a URL web page where you have to interact with the crowd-powered conversational system (CPCS). You have to perform some information retrieval or search tasks with CPCS system
+                  in this study. The detailed description of the informational retrieval tasks is presented in the next page. </li>
+                <li class="list-group-item">The system will show you three sample search tasks. You only have to select the one and then wait for the response from CPCS system.</li>
+                <li class="list-group-item"> After performing search task with CPCS, you will be asked to fill out a survey form.</li>
+                <li class="list-group-item"> Finally, you will be redirected back to the Completion URL on the prolific platform.</li>
+              </ul>
+
+              <div class="alert alert-warning" role="alert">
+                Note: It is up to you to decide whether to take part or not; choosing not to take part will not disadvantage you in any way. You are allowed to leave the study even during the execution of the study.
+              </div>
+
+            </p>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Risks/Discomforts</h5>
+          </div>
+          <div class="card-body">
+
+            <p class="card-text">There are no risks to the extent of our knowledge associated with this study. </p>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Confidentiality</h5>
+          </div>
+          <div class="card-body">
+
+            <p class="card-text">Data will be handled anonymously and only the researchers of this study will have direct access to it. We will not store any personal information that will allow participants to be identified from their data. We will only gather basic demographic
+              (age, gender, qualifications). This data is provided by prolific platform by default for each study.
+            </p>
+          </div>
+        </div>
+
+
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">Consent</h5>
+          </div>
+          <div class="card-body">
+            <!-- https://getbootstrap.com/docs/4.0/components/forms/#checkboxes-and-radios-1 -->
+            <div class="custom-control custom-checkbox">
+              <input type="checkbox" class="custom-control-input" id="customCheck1">
+              <label class="custom-control-label" for="customCheck1">By checking this you have decided to volunteer as a research participant for this study, and that you have read and understood the information provided above. </label>
+            </div>
+          </div>
+        </div>
+        <br>
+        <div class="text-center">
+
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <div class="text-center">
+              <button type="button" class="btn btn-secondary btn-lg" id="nextbtn">Click to Proceed Further</button>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+  </form>
+
+
+    <script>
+      function gup(name) {
+        name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+        var regexS = "[\\?&]" + name + "=([^&#]*)";
+        var regex = new RegExp(regexS);
+        var results = regex.exec(window.location.href);
+        if (results == null)
+          return "";
+        else
+          return unescape(results[1]);
+      }
+
+      $(document).ready(function() {
+        if (gup("context") == "stress") $('#IR').hide();
+        if (gup("context") == "IR") $('#stress').hide();
+        $("#PAMbtn").prop('disabled', true);
+      });
+
+      $('input[type="radio"]').click(function() {
+        $("#PAMbtn").prop('disabled', false);
+    });
+
+      $('#nextbtn').click(function() {
+        var Exp = /^([a-zA-Z0-9_-]){24}$/;
+        var workerid = document.getElementById("workerid").value;
+        if (workerid.trim() == '') {
+          alert("Please enter your worker ID first!");
+        } else if (!workerid.match(Exp)) {
+          alert("Please Enter your prolific ID containing 24 alphanumeric characters!");
+        } else if (!$('#customCheck1').is(':checked')) {
+          alert("You must agree to participate as a participant of this study!");
+        } else {
+          document.getElementById('id01').style.display = 'block';
+          // if ({{condition}} === 1) window.location.replace("https://trainbot1.herokuapp.com/training" + "?" + $.param(qs));
+          // else window.location.replace("https://trainbot1.herokuapp.com/greeting" + "?" + $.param(qs));
+        }
+
+      });
+
+
+
+      $('#PAMbtn').click(function() {
+
+        var qs = {
+          'workerId': $("#workerid").val(),
+          'mood': $('input[name=PAM]:checked').val(),
+          'context': gup("context"),
+          'q': gup('q'),
+          'c':gup('c'),
+          'd':gup('d')
+        };
+
+        if(gup("context") == "stress")  {
+           window.location.replace("http://127.0.0.1:5000/stress_task" + "?" + $.param(qs));
+        }
+
+        else {
+         window.location.replace("http://127.0.0.1:5000/IR_task" + "?" + $.param(qs));
+        }
+      });
+
+
+    </script>
+
+
+</body>
+
+</html>

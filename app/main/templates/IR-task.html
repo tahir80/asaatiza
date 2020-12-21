@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <title></title>
+
+  <style>
+    .card {
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+      max-width: 100%;
+      margin: auto;
+      padding: 40px;
+      text-align: center;
+      font-family: arial;
+      background: whitesmoke;
+    }
+
+    .title {
+      color: grey;
+      font-size: 18px;
+    }
+  </style>
+</head>
+
+<body>
+  <form method="post">
+  <div class="container">
+
+    <nav class="navbar navbar-light bg-light">
+
+      <div class="text-center">
+        <img src="/static/img/tue.png" width="20%" height="20%" class="mx-auto d-block" alt="">
+        <h4>INSTRUCTIONS</h4>
+      </div>
+    </nav>
+    <br>
+    <div class="alert alert-dark" role="alert">
+      <p>In the next page, the crowd-powered conversational system (CPCS) will provide you the following three types of information retrieval or search tasks as options to choose from. After you choose the category, the system will send the chosen search task to CPCS system.  You do not have to create the search task yourself in this study.</p>
+
+      <p>While waiting for the response, please do not switch the tabs or do other tasks. Once you receive the response, read it carefully and then follow the next instructions from the CPCS.</p>
+
+      <p>Once you load the CPCS in the next page, it will send you a greeting response, which is pre-programed and does not involve any crowd-powered support. However, the subsequent responses from the CPCS involve real time support from both humans and computation as explained in the consent form.</p>
+
+
+    </div>
+    <!-- COMPLEX CASE -->
+    <div class="card" id="complex_case">
+      <div class="card-header">
+        <h5 class="card-title"><b>Search Tasks</b></h5>
+      </div>
+      <div class="card-body">
+
+        <!-- card # 1 -->
+
+        <div class="card mb-3">
+          <div class="text-center">
+            <img src="{{url_for('static', filename='img/health2.png')}}" class="rounded-circle" alt="Cinque Terre" width="75px">
+
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Health</h2>
+            <p class="card-text">My great granny's doctor has told her that getting more exercise will increase her fitness and help her avoid injuries. I need an exercise program for her. She is 90-years old. Help me to put together two thirty-minute low impact exercise
+              programs that she could alternate between during the week.</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+
+        <!-- card # 2 -->
+
+        <div class="card mb-3">
+          <div class="text-center">
+            <img src="{{url_for('static', filename='img/science.png')}}" class="rounded-circle" alt="Cinque Terre" width="75px">
+
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Science & Technology</h2>
+            <p class="card-text">After the NASCAR season opened this year, my niece became really interested in soapbox derby racing. Since her parents are both really busy, I agreed to help her build a car so that she can enter a local race. The first step is to figure out
+              how to build a car. Identify some basic designs that you might use and help me to create a basic plan for constructing the car.</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+
+        <!-- card # 3 -->
+
+        <div class="card mb-3">
+          <div class="text-center">
+            <img src="{{url_for('static', filename='img/entertainment.png')}}" class="rounded-circle" alt="Cinque Terre" width="75px">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Entertainment</h2>
+            <p class="card-text">My local Triple-A affiliate baseball team has decided that it is time for a new mascot and are holding a contest where fans can enter suggestions. Being a loyal fan, I have decided to enter the contest. I want to suggest a mascot that will
+              appeal to many people and will represent important qualities of a baseball team. The team is a part of the International League, so I want to avoid suggesting a mascot that is already represented in this league. Which mascot would I pick
+              and why?</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="card" id="simple_case">
+      <div class="card-header">
+        <h5 class="card-title"><b>Search Tasks</b></h5>
+      </div>
+      <div class="card-body">
+
+        <!-- card # 1 -->
+
+        <div class="card mb-3">
+          <div class="text-center">
+            <img src="{{url_for('static', filename='img/health2.png')}}" class="rounded-circle" alt="Cinque Terre" width="75px">
+
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Health</h2>
+            <p class="card-text">I recently watched a documentary about people living with HIV in the United States.
+              I thought the disease was nearly eradicated, and am now curious to know more about the prevalence of the disease.
+              Specifically, how many people in the US are currently living with HIV?</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+
+        <!-- card # 2 -->
+
+        <div class="card mb-3">
+          <div class="text-center">
+            <img src="{{url_for('static', filename='img/science.png')}}" class="rounded-circle" alt="Cinque Terre" width="75px">
+
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Science & Technology</h2>
+            <p class="card-text">I recently watched a show on the Discovery Channel, about fish that can live so deep in the ocean that they're in darkness most or all of the time. This made me more curious about the deepest point in the ocean. What is the name of the deepest point in the ocean?</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+
+        <!-- card # 3 -->
+
+        <div class="card mb-3">
+          <div class="text-center">
+            <img src="{{url_for('static', filename='img/entertainment.png')}}" class="rounded-circle" alt="Cinque Terre" width="75px">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">Entertainment</h2>
+            <p class="card-text">I recently attended an outdoor music festival and heard a band called Wolf Parade. I really enjoyed the band and want to purchase their latest album. What is the name of their latest (full-length) album?</p>
+            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+
+<input type="hidden" id="hidden_field_IR" name="hidden_field_IR" value="3487">
+  <br>
+  <div class="text-center">
+    <button type="submit" class="btn btn-secondary btn-lg" id="nextbtn">Proceed Further</button>
+  </div>
+
+</form>
+
+  <script>
+    function gup(name) {
+      name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+      var regexS = "[\\?&]" + name + "=([^&#]*)";
+      var regex = new RegExp(regexS);
+      var results = regex.exec(window.location.href);
+      if (results == null)
+        return "";
+      else
+        return unescape(results[1]);
+    }
+
+    $(document).ready(function() {
+      if (gup("c") == "1") $('#simple_case').hide();
+      if (gup("c") == "0") $('#complex_case').hide();
+
+      $.ajax({
+              type: "POST",
+              url: "/setTime",
+              data: JSON.stringify({
+                "nothing": {}
+              }),
+              contentType: "application/json; charset=utf-8",
+              dataType: "json",
+              success: function(data) {
+              console.log(JSON.stringify(data));
+              }
+          });
+    });
+
+    $('#nextbtn').click(function() {
+      var qs = {
+        'workerId': gup("workerId"),
+        'mood': gup("mood"),
+        'context': gup("context"),
+        'q': gup('q'),
+        'c':gup('c'),
+        'd':gup('d')
+      };
+      window.location.replace("http://127.0.0.1:5000/bot" + "?" + $.param(qs));
+    });
+  </script>
+</body>
+
+</html>
